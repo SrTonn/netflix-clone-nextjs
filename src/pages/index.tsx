@@ -14,23 +14,22 @@ const Home: React.FC = () => {
     loadAll()
   }, [])
 
-const Home: React.FC = () => (
-  <div className={styles.container}>
-    <Head>
-      <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
+  return (
+    <div className={styles.container}>
+      <Head>
+        <title>Create Next App</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-    <header>
-      Header
-    </header>
+      <header>
+        Header
+      </header>
 
-    <main className={styles.main}>
-      <h1>
-        Destaque
-        <br />
-        Listas
-      </h1>
+      <main className={styles.page}>
+        <h1>
+          Destaque
+          <br />
+        </h1>
         {movieList.map((item) => (
           <MovieRow
             title={item.title}
@@ -38,12 +37,13 @@ const Home: React.FC = () => (
             key={item.title}
           />
         ))}
-    </main>
+      </main>
 
-    <footer>
-      footer
-    </footer>
-  </div>
-)
+      <footer>
+        footer
+      </footer>
+    </div>
+  )
+}
 
 export default Home
