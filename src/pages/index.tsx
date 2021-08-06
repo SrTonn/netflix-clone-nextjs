@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import MovieRow from '../components/MovieRow'
+import Netflix from '../../public/Netflix.svg'
 
 const Home: React.FC = () => {
   const [movieList, setMovieList] = React.useState([])
@@ -23,6 +24,11 @@ const Home: React.FC = () => {
 
       <header>
         Header
+        <div>
+          <a href="/">
+            <Netflix width={100} height={100} fill="red" />
+          </a>
+        </div>
       </header>
 
       <main className={styles.page}>
