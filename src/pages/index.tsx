@@ -18,8 +18,13 @@ const Home: React.FC = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Netflix Clone</title>
+        <link rel="icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico" />
+        <meta
+          name="description"
+          content="Site desenvolvido como forma de estudo por
+           Wellington Rodrigues"
+        />
       </Head>
 
       <header>
