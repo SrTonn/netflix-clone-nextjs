@@ -16,7 +16,7 @@ const rowList = ({ title, items }: {
             <div className={styles.item} key={item.id}>
               <img
                 src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
-                alt={item.name}
+                alt={item.name || item.title}
               />
             </div>
           ))}
