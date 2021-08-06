@@ -55,7 +55,7 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
     {
       slug: 'romance',
       title: 'Romance',
-      items: await basicFetch('/discover/movie?with_genres=27&language=pt-BR'),
+      items: await basicFetch('/discover/movie?with_genres=10749&language=pt-BR'),
     },
     {
       slug: 'documentary',
