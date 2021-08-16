@@ -8,7 +8,7 @@ const Home: React.FC = () => {
   const [movieList, setMovieList] = React.useState([])
   useEffect(() => {
     const loadAll = async () => {
-      const res = await fetch('/api/tmdb')
+      const res = await fetch('/api/tmdb/HomeList')
       const data = await res.json()
       setMovieList(data)
     }
