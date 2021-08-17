@@ -1,4 +1,4 @@
-export type ItemsType = {
+export type MovieRowProps = {
   id: number,
   results: Array<{
     id: number,

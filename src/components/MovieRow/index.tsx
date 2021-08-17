@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from './styles.module.css'
-import { ItemsType } from '../../interfaces'
+import { MovieRowProps } from '../../interfaces'
 
 const rowList = ({ title, items }: {
   title: string,
-  items: ItemsType,
+  items: MovieRowProps,
 }): JSX.Element => (
   <div className={styles.movieRow}>
     <h2>{title}</h2>
