@@ -7,3 +7,10 @@ export type ItemsType = {
      poster_path: string
   }>
 }
+
+export type FeaturedMovieProps = {
+  id: number,
+  original_name: string,
+  backdrop_path: string,
+  overview: string,
+}

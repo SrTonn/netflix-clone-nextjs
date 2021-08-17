@@ -1,16 +1,26 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import MovieRow from '../components/MovieRow'
-import Netflix from '../../public/Netflix.svg'
+import FeaturedMovie from '../components/FeaturedMovie'
 
 const Home: React.FC = () => {
-  const [movieList, setMovieList] = React.useState([])
+  const [movieList, setMovieList] = useState([])
+  const [featuredData, setFeaturedData] = useState(null)
+
   useEffect(() => {
     const loadAll = async () => {
       const res = await fetch('/api/tmdb/HomeList')
       const data = await res.json()
       setMovieList(data)
+
+      const originals = data.filter((i) => i.slug === 'originals')
+      const randomChosen = Math.floor(Math.random() * (originals[0].items.results.length - 1))
+      const chosen = originals[0].items.results[randomChosen]
+      const chosenInfoData = await fetch(`/api/tmdb/MovieInfo/tv/${chosen.id}`)
+      const chosenInfo = await chosenInfoData.json()
+
+      setFeaturedData(chosenInfo)
     }
     loadAll()
   }, [])
@@ -37,17 +47,17 @@ const Home: React.FC = () => {
       </header>
 
       <main className={styles.page}>
-        <h1>
-          Destaque
-          <br />
-        </h1>
-        {movieList.map((item) => (
-          <MovieRow
-            title={item.title}
-            items={item.items}
-            key={item.title}
-          />
-        ))}
+        {featuredData
+        && <FeaturedMovie item={featuredData} />}
+        <section>
+          {movieList.map((item) => (
+            <MovieRow
+              title={item.title}
+              items={item.items}
+              key={item.title}
+            />
+          ))}
+        </section>
       </main>
 
       <footer>
