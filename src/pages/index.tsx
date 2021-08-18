@@ -8,6 +8,22 @@ import FeaturedMovie from '../components/FeaturedMovie'
 const Home: React.FC = () => {
   const [movieList, setMovieList] = useState([])
   const [featuredData, setFeaturedData] = useState(null)
+  const [isBlackHeader, setIsBlackHeader] = useState(false)
+
+  useEffect(() => {
+    const scrollListener = () => {
+      if (window.scrollY > 10) {
+        setIsBlackHeader(true)
+      } else {
+        setIsBlackHeader(false)
+      }
+    }
+    window.addEventListener('scroll', scrollListener)
+
+    return () => {
+      window.removeEventListener('scroll', scrollListener)
+    }
+  }, [])
 
   useEffect(() => {
     const loadAll = async () => {
@@ -20,9 +36,9 @@ const Home: React.FC = () => {
       const chosen = originals[0].items.results[randomChosen]
       const chosenInfoData = await fetch(`/api/tmdb/MovieInfo/tv/${chosen.id}`)
       const chosenInfo = await chosenInfoData.json()
-
       setFeaturedData(chosenInfo)
     }
+
     loadAll()
   }, [])
 
