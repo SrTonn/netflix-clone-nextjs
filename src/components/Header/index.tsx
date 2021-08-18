@@ -5,7 +5,7 @@ import styles from './styles.module.css'
 const Header = ({ isBlack }: {isBlack:boolean}): JSX.Element => (
   <header className={`${styles.Header} ${isBlack ? styles.HeaderBlack : ''}`}>
     <div>
-      <a href="/" aria-label="Home" className={styles.HeaderLogo}>
+      <a href="/" aria-label="netflix-logo" className={styles.HeaderLogo}>
         <NetflixLogo width={100} height={100} fill="red" />
       </a>
     </div>
