@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import MovieRow from '../components/MovieRow'
-import NetflixLogo from '../../public/Netflix.svg'
+import Header from '../components/Header'
 import FeaturedMovie from '../components/FeaturedMovie'
 
 const Home: React.FC = () => {
@@ -38,14 +38,7 @@ const Home: React.FC = () => {
         />
       </Head>
 
-      <header>
-        Header
-        <div>
-          <a href="/" aria-label="Home">
-            <NetflixLogo width={100} height={100} fill="red" />
-          </a>
-        </div>
-      </header>
+      <Header isBlack={isBlackHeader} />
 
       <main className={styles.page}>
         {featuredData
