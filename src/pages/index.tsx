@@ -43,7 +43,7 @@ const Home: React.FC = () => {
       <main className={styles.page}>
         {featuredData
         && <FeaturedMovie item={featuredData} />}
-        <section>
+        <section className={styles.HomeLists}>
           {movieList.map((item) => (
             <MovieRow
               title={item.title}
