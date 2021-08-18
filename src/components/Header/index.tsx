@@ -11,7 +11,10 @@ const Header = ({ isBlack }: {isBlack:boolean}): JSX.Element => (
     </div>
     <div className={styles.HeaderUser}>
       <a href="/">
-        <img src="https://i.pinimg.com/originals/fb/8e/8a/fb8e8a96fca2f049334f312086a6e2f6.png" alt="" />
+        <img
+          src="https://i.pinimg.com/originals/fb/8e/8a/fb8e8a96fca2f049334f312086a6e2f6.png"
+          alt="user"
+        />
       </a>
     </div>
   </header>
