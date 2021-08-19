@@ -15,15 +15,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* padding-left: 30px;
-  padding-bottom: 150px; */
   padding: 70px 0 150px 30px
 }
 
 .featuredName {
   font-size: 60px;
   font-weight: bold;
-
 }
 
 .featuredInfo {
@@ -32,7 +29,9 @@
   margin-top: 15px;
 }
 
-.featuredPoints, .featuredYear, .featuredSeasons {
+.featuredPoints,
+.featuredYear,
+.featuredSeasons {
   display: inline-block;
   margin-right: 15px;
 }
@@ -41,11 +40,6 @@
   color: #46d369;
 
 }
-
-/* .featuredYear {
-  display: inline-block;
-  margin-right: 15px;
-} */
 
 .featuredDescription {
   margin-top: 15px;
@@ -96,4 +90,34 @@
   margin-top: 15px;
   font-size: 18px;
   color: #999;
+}
+
+@media (max-width: 767px) {
+  .featured {
+    height: 90vh;
+  }
+
+  .featuredName {
+    font-size: 40px;
+  }
+
+  .featuredInfo {
+    font-size: 16px;
+  }
+
+  .featuredDescription {
+    font-size: 14px;
+    width: 85vw;
+    margin-right: 30px;
+  }
+
+  .featuredWatchButton,
+  .featuredMyListButton {
+    font-size: 16px;
+  }
+
+  .featuredGenres {
+    margin-right: 30px;
+    font-size: 14px;
+  }
 }

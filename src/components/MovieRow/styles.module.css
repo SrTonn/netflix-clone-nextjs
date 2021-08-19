@@ -58,3 +58,10 @@
 .MovieRow:hover .MovieRowRight{
     opacity: 1;
 }
+
+@media (max-width: 760px) {
+  .MovieRowLeft,
+  .MovieRowRight {
+    opacity: 1;
+  }
+}
