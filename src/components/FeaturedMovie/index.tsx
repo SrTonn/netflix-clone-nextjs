@@ -51,17 +51,25 @@ const FeaturedMovie = ({ item }: {item: FeaturedMovieProps}): JSX.Element => {
                 href={`/watch/${item.id}`}
                 className={styles.featuredWatchButton}
               >
-                <PlayArrowIcon style={{ transform: 'translateY(18%)' }} />
-                {' '}
-                Assistir
+                <div>
+                  <PlayArrowIcon />
+                  {' '}
+                  <span>
+                    Assistir
+                  </span>
+                </div>
               </a>
               <a
                 href={`/list/add/${item.id}`}
                 className={styles.featuredMyListButton}
               >
-                <AddIcon style={{ transform: 'translateY(18%)' }} />
-                {' '}
-                Minha Lista
+                <div>
+                  <AddIcon />
+                  {' '}
+                  <span>
+                    Minha Lista
+                  </span>
+                </div>
               </a>
             </div>
             <div className={styles.featuredGenres}>
