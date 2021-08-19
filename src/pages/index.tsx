@@ -31,9 +31,9 @@ const Home: React.FC = () => {
       const data = await res.json()
       setMovieList(data)
 
-      const originals = data.filter((i) => i.slug === 'originals')
-      const randomChosen = Math.floor(Math.random() * (originals[0].items.results.length - 1))
-      const chosen = originals[0].items.results[randomChosen]
+      const originals = data[0].items.results.filter((item) => item.overview.length > 0)
+      const randomChosen = Math.floor(Math.random() * (originals.length - 1))
+      const chosen = originals[randomChosen]
       const chosenInfoData = await fetch(`/api/tmdb/MovieInfo/tv/${chosen.id}`)
       const chosenInfo = await chosenInfoData.json()
       setFeaturedData(chosenInfo)
