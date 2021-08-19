@@ -1,4 +1,6 @@
 import React from 'react'
+import PlayArrowIcon from '@material-ui/icons/PlayArrow'
+import AddIcon from '@material-ui/icons/Add'
 import styles from './styles.module.css'
 import { FeaturedMovieProps } from '../../interfaces'
 
@@ -38,13 +40,17 @@ const FeaturedMovie = ({ item }: {item: FeaturedMovieProps}): JSX.Element => {
                 href={`/watch/${item.id}`}
                 className={styles.featuredWatchButton}
               >
+                <PlayArrowIcon style={{ transform: 'translateY(18%)' }} />
+                {' '}
                 Assistir
               </a>
               <a
                 href={`/list/add/${item.id}`}
                 className={styles.featuredMyListButton}
               >
-                + Minha Lista
+                <AddIcon style={{ transform: 'translateY(18%)' }} />
+                {' '}
+                Minha Lista
               </a>
             </div>
             <div className={styles.featuredGenres}>
