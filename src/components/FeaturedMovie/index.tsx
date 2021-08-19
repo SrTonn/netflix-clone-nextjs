@@ -9,6 +9,17 @@ const FeaturedMovie = ({ item }: {item: FeaturedMovieProps}): JSX.Element => {
   const genres = []
   Object.values(item.genres).forEach((genre) => genres.push(genre.name))
 
+  const descriptionSizeNumber = window.innerWidth > 600
+    ? window.innerWidth / 2
+    : window.innerWidth
+  let description = item.overview
+  while (description.length > descriptionSizeNumber || description.match(/(?:Dr|Sr)a?\.$/i)) {
+    description = description.substr(0, description.lastIndexOf('. ') + 1)
+  }
+  if (description.length < 10) {
+    description = `${item.overview.substring(0, descriptionSizeNumber)}...`
+  }
+
   return (
     <section
       className={styles.featured}
@@ -34,7 +45,7 @@ const FeaturedMovie = ({ item }: {item: FeaturedMovieProps}): JSX.Element => {
               Temporada
               {item.number_of_seasons !== 1 ? 's' : ''}
             </div>
-            <div className={styles.featuredDescription}>{item.overview}</div>
+            <div className={styles.featuredDescription}>{description}</div>
             <div className={styles.featuredButtons}>
               <a
                 href={`/watch/${item.id}`}
