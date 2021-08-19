@@ -70,8 +70,34 @@ const Home: React.FC = () => {
         </section>
       </main>
 
-      <footer>
-        footer
+      <footer className={styles.Footer}>
+        Feito com
+        {' '}
+        <span role="img" aria-label="coração">
+          &#10084;&#65039;
+        </span>
+        {' '}
+        por
+        {' '}
+        <a
+          href="http://github.com/SrTonn"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Wellington R.
+        </a>
+        <br />
+        Direitos de imagem para Netflix
+        <br />
+        Dados pegos do site
+        {' '}
+        <a
+          href="http://Themoviedb.org"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Themoviedb.org
+        </a>
       </footer>
     </div>
   )
