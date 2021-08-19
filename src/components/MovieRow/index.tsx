@@ -44,6 +44,7 @@ const rowList = ({ title, items }: {
       <div
         className={styles.MovieRowLeft}
         role="button"
+        aria-label="Left arrow"
         tabIndex={0}
         onClick={handleLeftArrow}
         onKeyDown={handleKeyDown}
@@ -53,6 +54,7 @@ const rowList = ({ title, items }: {
       <div
         className={styles.MovieRowRight}
         role="button"
+        aria-label="Right arrow"
         tabIndex={0}
         onClick={handleRightArrow}
         onKeyDown={(e) => handleKeyDown(e)}
