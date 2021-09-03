@@ -1,6 +1,7 @@
 .MovieRow {
   margin-bottom: 30px;
 }
+
 .MovieRow h2 {
   margin: 0 0 0 30px;
 }
@@ -55,13 +56,14 @@
 }
 
 .MovieRow:hover .MovieRowLeft,
-.MovieRow:hover .MovieRowRight{
-    opacity: 1;
+.MovieRow:hover .MovieRowRight,
+.MovieRowMobile {
+  opacity: 1;
 }
 
 @media (max-width: 760px) {
-  .MovieRowLeft,
-  .MovieRowRight {
-    opacity: 1;
+  .MovieRow h2 {
+    margin: 0;
+    text-align: center;
   }
 }

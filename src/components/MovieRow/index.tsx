@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore'
 import NavigateNextIcon from '@material-ui/icons/NavigateNext'
 import styles from './styles.module.css'
@@ -8,7 +8,15 @@ const rowList = ({ title, items }: {
   title: string,
   items: MovieRowProps,
 }): JSX.Element => {
-  const [scrollX, setScrollX] = useState(-400)
+  const [scrollX, setScrollX] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
+  const isSmallerScreen = window.innerWidth < 768
+
+  useEffect(() => {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      setIsMobile(true)
+    }
+  }, [])
   const handleLeftArrow = () => {
     let x = scrollX + Math.round(window.innerWidth / 2)
     if (x > 0) {
@@ -21,7 +29,7 @@ const rowList = ({ title, items }: {
     let x = scrollX - Math.round(window.innerWidth / 2)
     const listWidth = items.results.length * 150
     if ((window.innerWidth - listWidth) > x) {
-      x = (window.innerWidth - listWidth) - 60
+      x = (window.innerWidth - listWidth) - ((isSmallerScreen || isMobile) ? 40 : 60)
     }
     setScrollX(x)
   }
@@ -39,10 +47,10 @@ const rowList = ({ title, items }: {
   }
 
   return (
-    <div className={styles.MovieRow}>
+    <div className={`${styles.MovieRow} ${isMobile ? styles.MovieRowMobile : ''}`}>
       <h2>{title}</h2>
       <div
-        className={styles.MovieRowLeft}
+        className={`${styles.MovieRowLeft} ${isMobile ? styles.MovieRowMobile : ''}`}
         role="button"
         aria-label="Left arrow"
         tabIndex={0}
@@ -52,7 +60,7 @@ const rowList = ({ title, items }: {
         <NavigateBeforeIcon style={{ fontSize: 50 }} />
       </div>
       <div
-        className={styles.MovieRowRight}
+        className={`${styles.MovieRowRight} ${isMobile ? styles.MovieRowMobile : ''}`}
         role="button"
         aria-label="Right arrow"
         tabIndex={0}
