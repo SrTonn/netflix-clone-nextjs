@@ -7,8 +7,13 @@
 }
 
 .MovieRowListArea {
-  overflow-x: hidden;
+  width: 100vw;
+  overflow-x: scroll;
   padding-left: 30px;
+}
+
+.MovieRowListArea::-webkit-scrollbar {
+  display: none;
 }
 
 .MovieRowList {
