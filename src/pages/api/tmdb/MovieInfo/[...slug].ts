@@ -10,16 +10,16 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
 
   if (movieId) {
     switch (type) {
-    case 'movei':
+    case 'movie':
       info = await basicFetch(
-        `/movie/${movieId}?language=pt-BR&api_key=${API_KEY}`,
+        `/movie/${movieId}?language=pt-BR`,
         API_BASE,
         API_KEY,
       )
       break
     case 'tv':
       info = await basicFetch(
-        `/tv/${movieId}?language=pt-BR&api_key=${API_KEY}`,
+        `/tv/${movieId}?language=pt-BR`,
         API_BASE,
         API_KEY,
       )
